@@ -8,7 +8,9 @@ import datetime
 from xml.etree.ElementTree import Element, tostring
 
 # reference URL
-API_ENDPOINT = "https://graphical.weather.gov/xml/sample_products/browser_interface/ndfdBrowserClientByDay.php?numDays=7&format=24+hourly&Unit=e"
+API_ENDPOINT = ("https://graphical.weather.gov/xml/sample_products/"
+                "browser_interface/ndfdBrowserClientByDay.php"
+                "?numDays=7&format=24+hourly&Unit=e")
 CONFIG_TEMPLATE = \
     {
         "lat": 40.4406,
@@ -19,8 +21,9 @@ OUTPUT_TEMPLATE = \
     {
         "location": "None",
         "hightemp": "None",
-
+        "lowtemp": "None",
     }
+
 
 def print_help(exit_code=0):
     """Print help and also exit nonzero if specified."""
@@ -32,7 +35,6 @@ def cmdline_parser():
     """Parse options from commandline. Everything is optional."""
     args = sys.argv[1:]
     config = CONFIG_TEMPLATE
-
 
     if len(args) > 3:
         print_help(exit_code=2)
